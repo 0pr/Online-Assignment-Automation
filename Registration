@@ -1,0 +1,120 @@
+<html>
+<script type="text/javascript">
+function validate_form()
+{
+var res=true;
+var x = document.forms["frm"]["nm"].value;
+if (x == null || x == "")
+{
+alert("Enter name");
+document.getElementById('a').innerHTML="*";
+res=false;
+}
+else
+{
+document.getElementById('a').innerHTML="";
+res=true;
+}
+var y = document.forms["frm"]["rno"].value;
+if (y == null || y == "")
+{
+alert("Enter roll number");
+document.getElementById('b').innerHTML="*";
+res=false;
+}
+else
+{
+document.getElementById('b').innerHTML="";
+res=true;
+}
+var z = document.forms["frm"]["email"].value;
+if (z == null || z == "")
+{
+alert("Enter email");
+document.getElementById('d').innerHTML="*";
+res=false;
+}
+else
+{
+document.getElementById('d').innerHTML="";
+res=true;
+}
+var w = document.forms["frm"]["pwd"].value;
+if (w<=7 || w>=21 )
+{
+alert("Enter proper password");
+document.getElementById('e').innerHTML="*";
+res=false;
+}
+else
+{
+document.getElementById('e').innerHTML="";
+res=true;
+}
+var c = document.forms["frm"]["cno"].value;
+if (c == null || c == "")
+{
+alert("Enter contact-no");
+document.getElementById('f').innerHTML="*";
+res=false;
+}
+else
+{
+document.getElementById('f').innerHTML="";
+res=true;
+}
+if(res==true)
+return true;
+else
+return false;
+}
+function PwdStr()
+{
+var p= document.frm.pwd.value.length;
+if(p>=8 && p<=12)
+document.getElementById('e').innerHTML="weak...";
+else if(p>=13 && p<=16)
+document.getElementById('e').innerHTML="good";
+else if(p>=17 && p<=20)
+document.getElementById('e').innerHTML="strong...";
+}
+</script>
+</head>
+<body>
+<form
+name=frm
+method=post
+onsubmit="return
+validate_form()"
+action="stu_insert.php">
+<h3 align=center>REGISTRATION PAGE</h3>
+<label for="name">Name</label><br>
+<input type="text" name="nm" placeholder="Enter your full name in capitals" /><font
+color=red id=a> </font><br>
+<label for="name">Roll Number</label><br>
+<input type="text" name="rno" placeholder="Enter your University Registration/Roll
+number" /><font color=red id=b> </font><br>
+<label for="sem">Semester</label><br>
+<select name="sem">
+<option value="first">First</option>
+<option value="second">Second</option>
+<option value="third">Third</option>
+<option value="fourth">Fourth</option>
+<option value="fifth">Fifth</option>
+<option value="sixth">Sixth</option>
+<option value="seventh">Seventh</option>
+<option value="eighth">Eighth</option>
+</select> <font color=red id=c> </font><br>
+<label for="email">Email</label><br>
+<input type="email" name="email" placeholder="Enter your email id" /><font
+color=red id=d> </font><br>
+<label for="password">Password</label><br>
+<input type="password" name="pwd" placeholder="min 8 /max 20 characters"
+onkeydown="PwdStr()" /><font color=red id=e> </font><br>
+<label for="cno">Contact Number</label><br>
+<input type="text" name="cno" placeholder="Enter your mobile number" /><font
+color=red id=f> </font><br>
+<input type="submit" name="submit1" value="Submit"><br>
+</form>
+</body>
+</html>
